@@ -39,7 +39,7 @@ export default function RoomPage() {
       <main className="min-h-screen flex items-center justify-center" dir="rtl">
         <div className="text-center">
           <p className="text-red-400 text-xl mb-4">
-            {error === 'room_not_found' ? 'חדר לא נמצא' : 'אירעה שגיאה'}
+            {error ?? 'אירעה שגיאה'}
           </p>
           <a href="/" className="text-blue-400 hover:underline">חזור לדף הבית</a>
         </div>

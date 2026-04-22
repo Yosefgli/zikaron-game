@@ -54,7 +54,8 @@ export function useGameRoom(roomCode: string) {
         .single()
 
       if (roomErr || !room) {
-        setState(prev => ({ ...prev, error: 'room_not_found', isLoading: false }))
+        console.error('[useGameRoom] room fetch failed', roomErr)
+        setState(prev => ({ ...prev, error: roomErr?.message ?? 'room_not_found', isLoading: false }))
         return
       }
 
