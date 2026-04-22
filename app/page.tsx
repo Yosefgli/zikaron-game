@@ -23,7 +23,8 @@ export default function HomePage() {
       if (rpcErr) throw rpcErr
       router.push(`/room/${data.room_code}`)
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'שגיאה')
+      const msg = e instanceof Error ? e.message : (e as { message?: string })?.message ?? JSON.stringify(e)
+      setError(msg)
       setLoading(false)
     }
   }
@@ -42,7 +43,8 @@ export default function HomePage() {
       if (rpcErr) throw rpcErr
       router.push(`/room/${code.trim().toUpperCase()}`)
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'שגיאה')
+      const msg = e instanceof Error ? e.message : (e as { message?: string })?.message ?? JSON.stringify(e)
+      setError(msg)
       setLoading(false)
     }
   }
