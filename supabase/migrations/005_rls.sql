@@ -24,4 +24,9 @@ create policy "read_card_sets"   on card_sets   for select using (auth.role() = 
 create policy "read_card_values" on card_values for select using (auth.role() = 'authenticated');
 create policy "read_system_docs" on system_docs for select using (auth.role() = 'authenticated');
 
--- No INSERT / UPDATE / DELETE policies → only RPCs (security definer) can write
+-- Players can update only their own last_seen_at (presence heartbeat)
+-- All other writes must go through RPCs
+create policy "update_own_last_seen" on players
+  for update
+  using (user_id = auth.uid())
+  with check (user_id = auth.uid());

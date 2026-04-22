@@ -4,6 +4,16 @@ import type { Room, Player, CardSet } from '@/types/game'
 import { getT } from '@/lib/i18n'
 import RoomSettings from './RoomSettings'
 
+type SettingsPayload = Partial<{
+  pair_found_behavior:     string
+  turn_timer_enabled:      boolean
+  turn_time_limit_seconds: number
+  miss_reveal_ms:          number
+  language:                string
+  card_set_id:             string
+  num_pairs:               number
+}>
+
 interface Props {
   room: Room
   players: Player[]
@@ -11,7 +21,7 @@ interface Props {
   isHost: boolean
   cardSets: CardSet[]
   onStartGame: () => void
-  onUpdateSettings: (s: Parameters<React.ComponentProps<typeof RoomSettings>['onSave']>[0]) => void
+  onUpdateSettings: (s: SettingsPayload) => void
 }
 
 export default function RoomLobby({

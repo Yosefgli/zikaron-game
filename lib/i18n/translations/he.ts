@@ -50,4 +50,4 @@ export const he = {
   not_your_turn:   'לא התור שלך',
   board_locked_err:'הלוח נעול',
   error_generic:   'אירעה שגיאה',
-} as const
+}
