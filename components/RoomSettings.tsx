@@ -72,7 +72,7 @@ export default function RoomSettings({ room, cardSets, onSave }: Props) {
       {/* Pair found behavior */}
       <div>
         <label className={labelClass}>{t.pair_found_behavior}</label>
-        <select className={inputClass} value={behavior} onChange={e => setBehavior(e.target.value)}>
+        <select className={inputClass} value={behavior} onChange={e => setBehavior(e.target.value as 'stay_open' | 'remove_from_board')}>
           <option value="stay_open">{t.stay_open}</option>
           <option value="remove_from_board">{t.remove_from_board}</option>
         </select>

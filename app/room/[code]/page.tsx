@@ -10,7 +10,8 @@ import TurnIndicator  from '@/components/TurnIndicator'
 import RoomLobby      from '@/components/RoomLobby'
 
 export default function RoomPage() {
-  const { code } = useParams<{ code: string }>()
+  const params = useParams()
+  const code = params.code as string
   const {
     room, players, cards, myPlayer, cardSets,
     isMyTurn, isHost, isLoading, error,
