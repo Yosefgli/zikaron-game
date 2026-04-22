@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RTL logical properties fallback */
+[dir="rtl"] .ms-1 { margin-right: 0.25rem; margin-left: 0; }
+[dir="rtl"] .ms-2 { margin-right: 0.5rem;  margin-left: 0; }
